@@ -1,0 +1,52 @@
+<!--
+  Thymeleaf template for the car rental home page.  It lists all
+  available cars in a table.  Use expressions with the "th:" prefix
+  to bind model data.【57486733075438†L117-L122】
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Car Rental</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Available Cars</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Daily Rate (€)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.name}"></td>
+        <td th:text="${car.description}"></td>
+        <td th:text="${car.price}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p>
+    Use the REST API endpoints to build a frontend or test with cURL.
+    All API routes are secured using HTTP Basic authentication.  The default
+    credentials are <code>user</code> / <code>password</code>.
+</p>
+</body>
+</html>
